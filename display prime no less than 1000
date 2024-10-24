@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdbool.h>
+
+bool isPrime(int num) {
+    if (num <= 1) return false;   // 0 and 1 are not prime numbers
+    if (num == 2) return true;    // 2 is the only even prime number
+    if (num % 2 == 0) return false; // No even number greater than 2 is prime
+
+    
+    for (int i = 3; i * i <= num; i += 2) {
+        if (num % i == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+int main() {
+    printf("Prime numbers less than 1000 are:\n");
+
+    for (int num = 2; num < 1000; num++) {
+        if (isPrime(num)) {
+            printf("%d ", num);
+        }
+    }
+
+    printf("\n");
+    return 0;
+}
